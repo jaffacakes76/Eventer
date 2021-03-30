@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Eventer web app">
+    <meta name="keywords" content="Eventer, organize, event, celebration, planning, planer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Eventer</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+  
+   <!-- Offcanvas Menu Section Begin -->
+   <div class="offcanvas-menu-overlay"></div>
+   <div class="canvas-open">
+       <i class="icon_menu"></i>
+   </div>
+   <div class="offcanvas-menu-wrapper">
+       <div class="canvas-close">
+           <i class="icon_close"></i>
+       </div>
+       <div class="language-bar">
+           <div class="language-option">
+               <img src="img/flag.png" alt="" id="flag">
+               <span id="language">English</span>
+               <i class="fa fa-angle-down"></i>
+               <div class="flag-dropdown">
+                   <ul>
+                       <li><a href="#" id="english">English</a></li>
+                       <li><a href="#" id="serbian">Srpski</a></li>
+                   </ul>
+               </div>
+               <!--<span id="dropdown-username"></span>
+                <i class="fa fa-angle-down"></i>
+               <div class="offcanvas-dropdown">
+                <ul>
+                    <li><a id="inbox" href="javascript:;" lang-switch>Inbox</a></li>
+                    <li><a id="sent" href="javascript:;" lang-switch>Sent</a></li>
+                    <li><a id="myEvents" href="javascript:;" lang-switch>My Events</a></li>
+                </ul>
+            </div>-->
+           </div>
+        <div class="property-btn">
+            <a href="#testmodal1" class="property-sub" data-toggle="modal" lang-switch>Organize event</a>
+        </div>
+        
+    </div>
+    <nav class="main-menu">
+        <ul>
+            <li><a href="./home.html" lang-switch>Home</a></li>
+            <li><a href="javascript:;" lang-switch onclick="goToEvents();">Events</a></li>
+            <li><a href="./partners.html" lang-switch>Partners</a></li>
+            <li><a href="./about-us.html" lang-switch>About us</a></li>
+            <li><a href="./contact.html" lang-switch>Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="language-bar">
+        
+        <div class="property-btn">
+            <a id="login" href="#myModal" class="log-in trigger-btn" data-toggle="modal" lang-switch>Log in</a>
+        </div>
+        <div class="property-btn">
+            <a id="signup" href="#myModal1" class="sign-up trigger-btn" data-toggle="modal" lang-switch>Sign up</a>
+        </div>
+
+        <div id="user-dropdown" class="language-option">
+            <span id="dropdown-username"></span>
+             <i class="fa fa-angle-down"></i>
+            <div class="offcanvas-dropdown">
+             <ul>
+                 <li><a id="inbox" href="javascript:;" lang-switch>Inbox</a></li>
+                 <li><a id="sent" href="javascript:;" lang-switch>Sent</a></li>
+                 <li><a id="myEvents" href="javascript:;" lang-switch>My Events</a></li>
+                 <li><a href="#" class="btn" data-toggle="modal" data-target="#profilemodal" id="my-profile" lang-switch>My Profile</a></li>
+                 <li><a href="#" class="btn admin" data-toggle="modal" data-target="#testmodal2" id="edit-about-us" lang-switch>Edit Page</a></li>
+                 <li><a id="logout" href="" type="click" style="background:rgb(255, 81, 58);" lang-switch>Log out</a></li>
+             </ul>
+            </div>
+        </div>
+     
+    </div>
+
+        <div class="nav-logo-right">
+            <ul>
+                <li>
+                    <i class="icon_phone"></i>
+                    <div class="info-text">
+                        <span lang-switch>Phone:</span>
+                        <p class="phone-field"></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="icon_map"></i>
+                    <div class="info-text">
+                        <span lang-switch>Address:</span>
+                        <p class="address-field"></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="icon_mail"></i>
+                    <div class="info-text">
+                        <span>Email:</span>
+                        <p class="email-field"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+</div>
+<!-- Offcanvas Menu Section End -->
+
+
+    <!-- Header Section Begin -->
+    <header class="header-section header-normal">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="./home.html" lang-switch>Home</a></li>
+                                <li><a href="javascript:;" lang-switch onclick="goToEvents();">Events</a></li>
+                                <li><a href="./partners.html" lang-switch>Partners</a></li>
+                                <li class="active"><a href="./about-us.html" lang-switch>About us</a></li>
+                                <li><a href="./contact.html" lang-switch>Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="top-right">
+                            <div class="language-option">
+                                <img src="img/flag.png" alt="" id="flag">
+                                <span id="language">English</span>
+                                <i class="fa fa-angle-down"></i>
+                                <div class="flag-dropdown">
+                                    <ul>
+                                        <li><a href="#" id="english">English</a></li>
+                                        <li><a href="#" id="serbian">Srpski</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="#testmodal1" class="property-sub" data-toggle="modal" lang-switch>Organize event</a>
+                            <a id="login" href="#myModal" class="log-in trigger-btn" data-toggle="modal" lang-switch>Log in</a>
+                            <a id="signup" href="#myModal1" class="sign-up trigger-btn" data-toggle="modal" lang-switch>Sign up</a>
+                            <div id="user-dropdown" style="float: right;" class="language-option">
+                                <span id="dropdown-username"></span>
+                                <i class="fa fa-angle-down"></i>
+                                <div class="flag-dropdown">
+                                    <ul>
+                                        <li><a id="inbox" href="javascript:;" lang-switch>Inbox</a></li>
+                                        <li><a id="sent" href="javascript:;" lang-switch>Sent</a></li>
+                                        <li><a id="myEvents" href="javascript:;" lang-switch>My Events</a></li>
+                                        <li><a href="#" class="btn" data-toggle="modal" data-target="#profilemodal" id="my-profile" lang-switch>My Profile</a></li>
+                                        <li><a href="#" class="btn admin" data-toggle="modal" data-target="#testmodal2" id="edit-about-us" lang-switch>Edit Page</a></li>
+                                        <li><a id="logout" href="" type="click" class="log-out trigger-btn" lang-switch>Log out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-logo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="logo">
+                            <a href="./home.html"><img src="img/logo.png" alt="" height="85" width="105"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="nav-logo-right">
+                            <ul>
+                                <li>
+                                    <i class="icon_phone"></i>
+                                    <div class="info-text">
+                                        <span lang-switch>Phone:</span>
+                                        <p class="phone-field"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="icon_map"></i>
+                                    <div class="info-text">
+                                        <span lang-switch>Address:</span>
+                                        <p class="address-field"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="icon_mail"></i>
+                                    <div class="info-text">
+                                        <span>Email:</span>
+                                        <p class="email-field"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2 lang-switch>About Us</h2>
+                        <div class="breadcrumb-option">
+                            <a href="./home.html"><i class="fa fa-home"></a></i><a href="./home.html" lang-switch>Home</a>
+                            <span lang-switch>About Us</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section Begin -->
+
+    <!-- About Section Begin -->
+    <section class="about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span lang-switch>About Us</span>
+                        <h2 lang-switch>Hello! Welcome to Eventer.</h2>
+                        <p id="welcome-message-text"></p>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="about-text">
+                                <h4 lang-switch>Our Story</h4>
+                                <p id="our-story-text"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-text">
+                                <h4 lang-switch>Our Vision</h4>
+                                <p id="our-vision-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <div class="container">
+            <div class="row text-center">
+                <div class="col">
+                <div class="counter">
+          <h2 id="cusers" class="timer count-title count-number" data-speed="1500"></h2>
+           <p class="count-text " lang-switch>Users </p>
+        </div>
+                </div>
+                  <div class="col">
+                   <div class="counter">
+          <h2 id="cevents" class="timer count-title count-number" data-speed="1500"></h2>
+          <p class="count-text " lang-switch>Events </p>
+        </div>
+                  </div>
+                  <div class="col">
+                      <div class="counter">
+          <h2 id="cpartners" class="timer count-title count-number" data-speed="1500"></h2>
+          <p class="count-text " lang-switch>Partners </p>
+        </div></div>
+
+             </div>
+    </div>
+
+    <!-- Agent Section Begin -->
+    <section class="agent-section about-page spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span lang-switch>We Are Here To Help You</span>
+                        <h2 lang-switch>Our Agents</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="agent-carousel owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="single-agent">
+                            <div class="sa-pic">
+                                <img src="img/agent/agent-1.jpg" alt="">
+                            </div>
+                            <h5>Ivana Milivojević</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="single-agent">
+                            <div class="sa-pic">
+                                <img src="img/agent/agent-2.jpg" alt="">
+                            </div>
+                            <h5>Damjan Cupić</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="single-agent">
+                            <div class="sa-pic">
+                                <img src="img/agent/agent-3.jpg" alt="">
+                            </div>
+                            <h5>Jovan Dimitrijević</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Agent Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer-text" style="padding-top: 20px;">
+                <div class="row" style="padding-bottom: 15px;">
+                    <a href="#" style="height: 90px; width: 110px; margin: auto; display: block;"><img src="img/footer-logo.png" alt="" ></a>
+                </div>
+            </div>
+            <div class="copyright-text">
+                <p><p>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eventer. All rights reserved.<!--| This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>-->
+                </p></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!--Modal Section Begin-->
+
+
+    <!--LOG IN forma-->
+    <div id="myModal" class="modal">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">				
+                    <h4 class="modal-title" lang-switch>Log In</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" action="/examples/actions/confirmation.php" method="post">
+                        <div class="form-group">
+                            <div class="input-group" id="divig">
+                                <script>
+                                    if(localStorage.lang=="english")
+                                    document.querySelector('#divig').innerHTML=`
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" class="form-control" name="username" placeholder="Email Address" required="required" id="login-email">`;
+                                    else
+                                    document.querySelector('#divig').innerHTML=`
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" class="form-control" name="username" placeholder="Email Adresa" required="required" id="login-email">`;
+                                </script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group" id="divig1">
+                                <script>
+                                    if(localStorage.lang=="english")
+                                    document.querySelector('#divig1').innerHTML=`
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" required="required" id="login-password">`;
+                                    else
+                                    document.querySelector('#divig1').innerHTML=`
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="password" class="form-control" name="password" placeholder="Lozinka" required="required" id="login-password">`;
+                                </script>  
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" lang-switch>Log In</button>
+                            <p class="error red-text center-align greska"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><a href="javascript:;" id="create-acc" lang-switch>Don't have an account? Create one!</a></div>
+            </div>
+        </div>
+    </div> 
+    
+    <!--SIGN IN forma-->
+    <div id="myModal1" class="modal">
+        <div class="signup-form">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top: 8px; margin-right: 12px;">&times;</button>	
+            <form id="signup-form" action="/examples/actions/confirmation.php" method="post">
+                <h2 class="modal-title" lang-switch>Create Account</h2>
+                <div class="form-group">
+                    <div class="input-group" id="divig2">
+                        <script>
+                            if(localStorage.lang=="english")
+                            document.querySelector('#divig2').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="first-name" placeholder="First Name" required="required" id="first-name-field">`;
+                            else
+                            document.querySelector('#divig2').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="first-name" placeholder="Ime" required="required" id="first-name-field">`;
+                        </script> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group" id="divig3">
+                        <script>
+                            if(localStorage.lang=="english")
+                            document.querySelector('#divig3').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="last-name" placeholder="Last Name" required="required" id="last-name-field">`;
+                            else
+                            document.querySelector('#divig3').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="last-name" placeholder="Prezime" required="required" id="last-name-field">`;
+                        </script> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group" id="divig4">
+                        <script>
+                            if(localStorage.lang=="english")
+                            document.querySelector('#divig4').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="username" placeholder="Username" required="required" id="username-field" onfocusout="checkUsername();">`;
+                            else
+                            document.querySelector('#divig4').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" name="username" placeholder="Korisničko Ime" required="required" id="username-field" onfocusout="checkUsername();">`;
+                        </script>
+                    </div>
+                    <p class="error red-text center-align greska" id="username-error"></p>
+                </div>
+                <div class="form-group">
+                    <div class="input-group" id="divig5">
+                        <script>
+                            if(localStorage.lang=="english")
+                            document.querySelector('#divig5').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                            <input type="email" class="form-control" name="email" placeholder="Email Address" required="required" id="signup-email" onfocusout="checkEmail();">`;
+                            else
+                            document.querySelector('#divig5').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                            <input type="email" class="form-control" name="email" placeholder="Email Adresa" required="required" id="signup-email" onfocusout="checkEmail();">`;
+                        </script>
+                    </div>
+                    <p class="error red-text center-align greska" id="email-error"></p>
+                </div>
+                <div class="form-group">
+                    <div class="input-group" id="divig6">
+                        <script>
+                            if(localStorage.lang=="english")
+                            document.querySelector('#divig6').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" class="form-control" name="password" placeholder="Password" required="required" id="signup-password">`;
+                            else
+                            document.querySelector('#divig6').innerHTML=`
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" class="form-control" name="password" placeholder="Lozinka" required="required" id="signup-password">`;
+                        </script>
+                    </div>
+                    <p class="error red-text center-align greska" id="password-error"></p>
+                </div>
+                <div class="form-group">
+                    <div class="input-group" id="divig7">
+                        <script>
+                            if(localStorage.lang=="english")
+                            document.querySelector('#divig7').innerHTML=`
+                            <span class="input-group-addon">
+                            <i class="fa fa-lock"></i>
+                            <i class="fa fa-check"></i>
+                            </span>
+                            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required" id="confirm-password">`;
+                            else
+                            document.querySelector('#divig7').innerHTML=`
+                            <span class="input-group-addon">
+                            <i class="fa fa-lock"></i>
+                            <i class="fa fa-check"></i>
+                            </span>
+                            <input type="password" class="form-control" name="confirm_password" placeholder="Potvrdi Lozinku" required="required" id="confirm-password">`;
+                        </script>
+                    </div>
+                    <p class="error red-text center-align greska" id="confirm-error"></p>
+                </div>        
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" lang-switch>Sign Up</button>   
+                </div>
+                <div class="text-center"><a href="javascript:;" id="login-here" lang-switch>Already have an account? Login here!</a></div>
+            </form> 
+        </div>
+    </div>
+    
+    <!-- Modal Organize Event -->
+    <div class="modal fade" id="testmodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" lang-switch>Organize Your Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="form-organize">
+                    <fieldset>
+    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                        <!-- <label class="col-lg control-label" for="eventtype" lang-switch><span class="star">*</span>Type of Event:</label> -->
+                        <label class="col-lg control-label" for="eventtype" lang-switch>*Type of Event:</label>
+                        <div class="col-lg">
+                        <select id="eventtype" name="eventtype" class="form-control organize" required="">
+                            <option value="0" selected disabled lang-switch>Select Type of Event</option>
+                            <option value="Birthday" lang-switch>Birthday</option>
+                            <option value="Wedding" lang-switch>Wedding</option>
+                            <option value="New Year" lang-switch>New Year</option>
+                            <option value="Conference" lang-switch>Conference</option>
+                            <option value="Other" lang-switch>Other (specify in the additional requests field)</option>
+                        </select>
+                        <p class="error center-align greska" id="typeErr"></p>
+                        </div>
+                    </div>    
+                    
+                    <div class="form-group">   
+                        <!-- <label class="col-md-10 control-label" for="eventstart"><span class="star">*</span>Event start:</label> -->
+                        <label class="col-md-10 control-label" for="eventstart" lang-switch>*Event Start:</label>
+                        <div class="col-md-6">
+                            <input type="date" id="startdate" name="eventstart" class="form-control input-md organize" required="" max="2021-12-31" onchange="enableStartTime();">
+                            <input type="time" id="starttime" name="eventstart" class="form-control input-md organize" required="" disabled onchange="setEndDateLimit();"> 
+                        </div> 
+                    </div>      
+                    
+                    <div class="form-group">   
+                        <!-- <label class="col-md-10 control-label" for="eventend"><span class="star">*</span>Event end:</label> -->
+                        <label class="col-md-10 control-label" for="eventend" lang-switch>*Event End:</label>
+                        <div class="col-md-6">
+                            <input type="date" id="enddate" name="eventend" class="form-control input-md organize" required="" disabled onchange="setEndTimeLimit();">
+                            <input type="time" id="endtime" name="eventend" class="form-control input-md organize" required="" disabled> 
+                            <p class="error center-align greska" id="dateErr"></p>
+                        </div> 
+                       
+                    </div>
+    
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <!-- <label class="col-md-10 control-label" for="guestnum"><span class="star">*</span>Number of Guests (min 10):</label>   -->
+                      <label class="col-md-10 control-label" for="guestnum" lang-switch>*Number of Guests (min 10):</label>
+                      <div class="col-md-4">
+                        <input id="guestnum" name="guestnum" type="number" placeholder="" class="form-control input-md organize" required="" min="10" onkeypress="return isNumberKey(event)"> 
+                    </div>
+                    
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                        <label class="col-lg control-label" for="space" lang-switch>Choose Space:</label>
+                        <div class="col-lg">
+                        <select id="space" name="space" class="form-control organize">
+    
+                        </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="band" lang-switch>Choose Music:</label>
+                      <div class="col-lg">
+                        <select id="band" name="band" class="form-control organize">
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="catering" lang-switch>Choose Catering:</label>
+                      <div class="col-lg">
+                        <select id="catering" name="catering" class="form-control organize">
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="photograph" lang-switch>Choose Photographer:</label>
+                      <div class="col-lg">
+                        <select id="photograph" name="photograph" class="form-control organize" >
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Multiple Radios -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="priority" lang-switch>Priority:</label>
+                      <div class="col-md-5">
+                      <div class="radio">
+                        <input type="radio" name="priority" id="priority-0" value="Normal" checked="checked">
+                        <label for="priority-0" lang-switch>Normal</label>
+                        </div>
+                      <div class="radio">
+                        <input type="radio" name="priority" id="priority-1" value="High">
+                        <label for="priority-1" lang-switch>High</label>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-8 control-label" for="addreq" lang-switch>Additional Requests:</label>
+                        <div class="col-lg">                     
+                            <textarea class="form-control" id="addreq" name="addreq"></textarea>
+                        </div>
+                    </div>
+        
+                    </fieldset>
+                    </form>
+                                       
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal" lang-switch>Close</button>
+                <button type="button" class="btn btn-primary add" id="buttonReq" onclick="submit();" lang-switch>Submit Request</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+
+    <!--Modal Edit about-us page-->
+    <div class="modal fade" id="testmodal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" lang-switch>Info About Agency</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-10 control-label" for="phone" lang-switch>Phone:</label>  
+                      <div class="col-lg">
+                        <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md organize" required=""> 
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-10 control-label" for="address" lang-switch>Address:</label>  
+                        <div class="col-lg">
+                          <input id="address" name="address" type="text" placeholder="" class="form-control input-md organize" required=""> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-10 control-label" for="email" lang-switch>Email:</label>  
+                        <div class="col-lg">
+                          <input id="email" name="email" type="text" placeholder="" class="form-control input-md organize" required=""> 
+                        </div>
+                    </div>
+                   
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-8 control-label" for="welcome-message" lang-switch>Welcome Message:</label>
+                        <div class="col-lg">                     
+                            <textarea class="form-control" id="welcome-message" name="welcome-message"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-8 control-label" for="our-story" lang-switch>Our Story:</label>
+                        <div class="col-lg">                     
+                            <textarea class="form-control" id="our-story" name="our-story"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-8 control-label" for="our-vision" lang-switch>Our Vision:</label>
+                        <div class="col-lg">                     
+                            <textarea class="form-control" id="our-vision" name="our-vision"></textarea>
+                        </div>
+                    </div>
+        
+                    </fieldset>
+                    </form>
+                                       
+            </div>
+            <div class="modal-footer">
+                <button type="button"  id="close" class="btn btn-secondary" data-dismiss="modal" lang-switch>Close</button>
+                <button type="button" class="btn btn-primary add" onclick="addInfo();" lang-switch>Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal My Profile-->
+    <div class="modal fade" id="profilemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel4" lang-switch>My Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="profile-edit">
+                    <fieldset>
+
+                    <!-- Text input-->
+                    <div class="form-group" id="first-name-div">
+                      <label class="col-md-10 control-label" for="first-name" lang-switch>First Name:</label>  
+                      <div class="col-lg">
+                        <input id="first-name" name="first-name" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                      </div>
+                    </div>
+
+                    <div class="form-group" id="last-name-div">
+                        <label class="col-md-10 control-label" for="last-name" lang-switch>Last Name:</label>  
+                        <div class="col-lg">
+                          <input id="last-name" name="last-name" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-10 control-label" for="profile-email" lang-switch>Email:</label>  
+                        <div class="col-lg">
+                          <input id="profile-email" name="profile-email" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-10 control-label" for="profile-username" lang-switch>Username:</label>  
+                        <div class="col-lg">
+                          <input id="profile-username" name="profile-username" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                        </div>
+                        <p class="error red-text center-align greska" id="username-edit-error"></p>
+                    </div>
+        
+                    </fieldset>
+                    </form>
+                                       
+            </div>
+            <div class="modal-footer">
+                <button type="button"  id="close" class="btn btn-secondary" data-dismiss="modal" lang-switch>Close</button>
+                <button type="button" class="btn btn-primary add" onclick="editUserInfo();" lang-switch>Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal Section End-->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- <script defer src="js/home.js"></script> -->
+    <script defer src="js/login_signup.js"></script>
+    <script defer src="js/onstatechange.js"></script>
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/request.js"></script>
+    <script defer src="js/aboutus.js"></script>
+    <script defer src="js/header.js"></script>
+    <script defer src="js/language.js"></script>
+    
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-functions.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-messaging.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+    <!--initialize the SDK after all desired features are loaded -->
+
+    <script src="js/firebaseconfig.js"></script>
+    
+</body>
+</html>

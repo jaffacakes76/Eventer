@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Eventer web app">
+    <meta name="keywords" content="Eventer, organize, event, celebration, planning, planer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Eventer</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+   <!-- Offcanvas Menu Section Begin -->
+   <div class="offcanvas-menu-overlay"></div>
+   <div class="canvas-open">
+       <i class="icon_menu"></i>
+   </div>
+   <div class="offcanvas-menu-wrapper">
+       <div class="canvas-close">
+           <i class="icon_close"></i>
+       </div>
+       <div class="language-bar">
+           <div class="language-option">
+               <img src="img/flag.png" alt="" id="flag">
+               <span id="language">English</span>
+               <i class="fa fa-angle-down"></i>
+               <div class="flag-dropdown">
+                   <ul>
+                       <li><a href="#" id="english">English</a></li>
+                       <li><a href="#" id="serbian">Srpski</a></li>
+                   </ul>
+               </div>
+           </div>
+        <div class="property-btn">
+            <a href="#testmodal1" class="property-sub" data-toggle="modal" lang-switch>Organize event</a>
+        </div>
+    </div>
+    <nav class="main-menu">
+        <ul>
+            <li><a href="./home.html" lang-switch>Home</a></li>
+            <li><a href="javascript:;" lang-switch onclick="goToEvents();">Events</a></li>
+            <li><a href="./partners.html" lang-switch>Partners</a></li>
+            <li><a href="./about-us.html" lang-switch>About us</a></li>
+            <li><a href="./contact.html" lang-switch>Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="language-bar">
+
+        <div id="user-dropdown" class="language-option">
+            <span id="dropdown-username"></span>
+             <i class="fa fa-angle-down"></i>
+            <div class="offcanvas-dropdown">
+             <ul>
+                 <li><a id="inbox" href="javascript:;" lang-switch>Inbox</a></li>
+                 <li><a id="sent" href="javascript:;" lang-switch>Sent</a></li>
+                 <li><a id="myEvents" href="javascript:;" lang-switch>My Events</a></li>
+                 <li><a href="#" class="btn" data-toggle="modal" data-target="#profilemodal" id="my-profile" lang-switch>My Profile</a></li>
+                 <li><a id="logout" href="" type="click" style="background:rgb(255, 81, 58);" lang-switch>Log out</a></li>
+             </ul>
+            </div>
+        </div>
+     
+    </div>
+
+        <div class="nav-logo-right">
+            <ul>
+                <li>
+                    <i class="icon_phone"></i>
+                    <div class="info-text">
+                        <span lang-switch>Phone:</span>
+                        <p class="phone-field"></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="icon_map"></i>
+                    <div class="info-text">
+                        <span lang-switch>Address:</span>
+                        <p class="address-field"></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="icon_mail"></i>
+                    <div class="info-text">
+                        <span>Email:</span>
+                        <p class="email-field"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+</div>
+<!-- Offcanvas Menu Section End -->
+
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="./home.html" lang-switch>Home</a></li>
+                                <li><a href="javascript:;" lang-switch onclick="goToEvents();">Events</a></li>
+                                <li><a href="./partners.html" lang-switch>Partners</a></li>
+                                <li><a href="./about-us.html" lang-switch>About us</a></li>
+                                <li><a href="./contact.html" lang-switch>Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="top-right">
+                            <div class="language-option">
+                                <img src="img/flag.png" alt="" id="flag">
+                                <span id="language">English</span>
+                                <i class="fa fa-angle-down"></i>
+                                <div class="flag-dropdown">
+                                    <ul>
+                                        <li><a href="#" id="english">English</a></li>
+                                        <li><a href="#" id="serbian">Srpski</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="#testmodal1" class="property-sub" data-toggle="modal" lang-switch>Organize event</a>
+                            <div id="user-dropdown" style="float: right;" class="language-option">
+                                <span id="dropdown-username"></span>
+                                <i class="fa fa-angle-down"></i>
+                                <div class="flag-dropdown">
+                                    <ul>
+                                        <li><a id="inbox" href="javascript:;" lang-switch>Inbox</a></li>
+                                        <li><a id="sent" href="javascript:;" lang-switch>Sent</a></li>
+                                        <li><a id="myEvents" href="javascript:;" lang-switch>My Events</a></li>
+                                        <li><a href="#" class="btn" data-toggle="modal" data-target="#profilemodal" id="my-profile" lang-switch>My Profile</a></li>
+                                        <li><a id="logout" href="" type="click" class="log-out trigger-btn" lang-switch>Log out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-logo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="logo">
+                            <a href="./home.html"><img src="img/logo.png" alt="" height="85" width="105"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="nav-logo-right">
+                            <ul>
+                                <li>
+                                    <i class="icon_phone"></i>
+                                    <div class="info-text">
+                                        <span lang-switch>Phone:</span>
+                                        <p class="phone-field"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="icon_map"></i>
+                                    <div class="info-text">
+                                        <span lang-switch>Address:</span>
+                                        <p class="address-field"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="icon_mail"></i>
+                                    <div class="info-text">
+                                        <span>Email:</span>
+                                        <p class="email-field"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                           <!--Naziv strane i lokacija se generise u js (requests.js)-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section Begin -->
+
+    <!-- Partners Section Begin -->
+    <section class="property-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="property-sidebar">
+                        <h4 lang-switch>Search Requests</h4>
+                        <form action="#" class="sidebar-search">
+                            <div class="sidebar-btn">
+                                <div class="bt-item">
+                                    <input type="radio" name="s-type" id="st-buy">
+                                    <label for="st-buy" lang-switch>Inbox</label>
+                                </div>
+                                <div class="bt-item">
+                                    <input type="radio" name="s-type" id="st-rent">
+                                    <label for="st-rent" lang-switch>Sent</label>
+                                </div>
+                            </div>
+                            <select id="etype">
+                                <script>
+                                    if(localStorage.lang=="english")
+                                    document.querySelector('#etype').innerHTML=
+                                    `<option value="0" lang-switch>Type of Event</option>
+                                    <option value="Birthday" lang-switch>Birthday</option>
+                                    <option value="Wedding" lang-switch>Wedding</option>
+                                    <option value="New Year" lang-switch>New Year</option>
+                                    <option value="Conference" lang-switch>Conference</option>
+                                    <option value="Other" lang-switch>Other</option>`;
+                                    else
+                                    document.querySelector('#etype').innerHTML=
+                                    `<option value="0" lang-switch>Tip Događaja</option>
+                                    <option value="Birthday" lang-switch>Rođendan</option>
+                                    <option value="Wedding" lang-switch>Venčanje</option>
+                                    <option value="New Year" lang-switch>Nova Godina</option>
+                                    <option value="Conference" lang-switch>Konferencija</option>
+                                    <option value="Other" lang-switch>Drugo</option>`;
+                                </script>
+                            </select>
+                            <select id="epriority">
+                                <script>
+                                    if(localStorage.lang=="english")
+                                    document.querySelector('#epriority').innerHTML=
+                                    `<option value="0" lang-switch>Priority</option>
+                                    <option value="High" lang-switch>High</option>
+                                    <option value="Normal" lang-switch>Normal</option>`;
+                                    else
+                                    document.querySelector('#epriority').innerHTML=
+                                    `<option value="0" lang-switch>Prioritet</option>
+                                    <option value="High" lang-switch>Visok</option>
+                                    <option value="Normal" lang-switch>Uobičajen</option>`;
+                                </script>
+                            </select>
+                            <select id="eguests">
+                                <script>
+                                    if(localStorage.lang=="english")
+                                    document.querySelector('#eguests').innerHTML=
+                                    `<option value="0" lang-switch>No of Guests</option>
+                                    <option value="20">10-20</option>
+                                    <option value="50">21-50</option>
+                                    <option value="100">51-100</option>
+                                    <option value="500">101-500</option>
+                                    <option value="+">500+</option>`;
+                                    else
+                                    document.querySelector('#eguests').innerHTML=
+                                    `<option value="0" lang-switch>Broj Gostiju</option>
+                                    <option value="20">10-20</option>
+                                    <option value="50">21-50</option>
+                                    <option value="100">51-100</option>
+                                    <option value="500">101-500</option>
+                                    <option value="+">500+</option>`;
+                                </script>
+                            </select>
+                          
+                                <input type="date" id="edate" class="form-control input-md edate">
+                                <button type="submit" id="resetFilters" lang-switch>Reset Date</button>
+                            
+                           
+                            <!--<div class="room-size-range">
+                                <div class="price-text">
+                                    <label for="roomsizeRangeP">No of Guests:</label>
+                                    <input type="text" id="roomsizeRangeP" readonly>
+                                </div>
+                                <div id="roomsize-range-P" min="1" max="10000" class="slider"></div>
+                            </div>-->
+                            
+                            <button type="submit" class="search-btn" id="search" lang-switch>Search Requests</button>
+                            
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9">
+                    <h4 class="property-title" lang-switch>Requests</h4>
+                    <div class="property-list">
+                        <!-- Generisana lista zahteva preko js (requests.js) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Partners Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer-text" style="padding-top: 20px;">
+                <div class="row" style="padding-bottom: 15px;">
+                    <a href="#" style="height: 90px; width: 110px; margin: auto; display: block;"><img src="img/footer-logo.png" alt="" ></a>
+                </div>
+            </div>
+            <div class="copyright-text">
+                <p><p>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eventer. All rights reserved.<!--| This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>-->
+                </p></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    
+    <!--Modal Section Begin-->   
+
+    <!-- Modal Organize Event -->
+    <div class="modal fade" id="testmodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" lang-switch>Organize Your Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="form-organize">
+                    <fieldset>
+    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                        <!-- <label class="col-lg control-label" for="eventtype" lang-switch><span class="star">*</span>Type of Event:</label> -->
+                        <label class="col-lg control-label" for="eventtype" lang-switch>*Type of Event:</label>
+                        <div class="col-lg">
+                        <select id="eventtype" name="eventtype" class="form-control organize" required="">
+                            <option value="0" selected disabled lang-switch>Select Type of Event</option>
+                            <option value="Birthday" lang-switch>Birthday</option>
+                            <option value="Wedding" lang-switch>Wedding</option>
+                            <option value="New Year" lang-switch>New Year</option>
+                            <option value="Conference" lang-switch>Conference</option>
+                            <option value="Other" lang-switch>Other (specify in the additional requests field)</option>
+                        </select>
+                        <p class="error center-align greska" id="typeErr"></p>
+                        </div>
+                    </div>    
+                    
+                    <div class="form-group">   
+                        <!-- <label class="col-md-10 control-label" for="eventstart"><span class="star">*</span>Event start:</label> -->
+                        <label class="col-md-10 control-label" for="eventstart" lang-switch>*Event Start:</label>
+                        <div class="col-md-6">
+                            <input type="date" id="startdate" name="eventstart" class="form-control input-md organize" required="" max="2021-12-31" onchange="enableStartTime();">
+                            <input type="time" id="starttime" name="eventstart" class="form-control input-md organize" required="" disabled onchange="setEndDateLimit();"> 
+                        </div> 
+                    </div>      
+                    
+                    <div class="form-group">   
+                        <!-- <label class="col-md-10 control-label" for="eventend"><span class="star">*</span>Event end:</label> -->
+                        <label class="col-md-10 control-label" for="eventend" lang-switch>*Event End:</label>
+                        <div class="col-md-6">
+                            <input type="date" id="enddate" name="eventend" class="form-control input-md organize" required="" disabled onchange="setEndTimeLimit();">
+                            <input type="time" id="endtime" name="eventend" class="form-control input-md organize" required="" disabled> 
+                            <p class="error center-align greska" id="dateErr"></p>
+                        </div> 
+                       
+                    </div>
+    
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <!-- <label class="col-md-10 control-label" for="guestnum"><span class="star">*</span>Number of Guests (min 10):</label>   -->
+                      <label class="col-md-10 control-label" for="guestnum" lang-switch>*Number of Guests (min 10):</label>
+                      <div class="col-md-4">
+                        <input id="guestnum" name="guestnum" type="number" placeholder="" class="form-control input-md organize" required="" min="10" onkeypress="return isNumberKey(event)"> 
+                    </div>
+                    
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                        <label class="col-lg control-label" for="space" lang-switch>Choose Space:</label>
+                        <div class="col-lg">
+                        <select id="space" name="space" class="form-control organize">
+    
+                        </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="band" lang-switch>Choose Music:</label>
+                      <div class="col-lg">
+                        <select id="band" name="band" class="form-control organize">
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="catering" lang-switch>Choose Catering:</label>
+                      <div class="col-lg">
+                        <select id="catering" name="catering" class="form-control organize">
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="photograph" lang-switch>Choose Photographer:</label>
+                      <div class="col-lg">
+                        <select id="photograph" name="photograph" class="form-control organize" >
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Multiple Radios -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="priority" lang-switch>Priority:</label>
+                      <div class="col-md-5">
+                      <div class="radio">
+                        <input type="radio" name="priority" id="priority-0" value="Normal" checked="checked">
+                        <label for="priority-0" lang-switch>Normal</label>
+                        </div>
+                      <div class="radio">
+                        <input type="radio" name="priority" id="priority-1" value="High">
+                        <label for="priority-1" lang-switch>High</label>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-8 control-label" for="addreq" lang-switch>Additional Requests:</label>
+                        <div class="col-lg">                     
+                            <textarea class="form-control" id="addreq" name="addreq"></textarea>
+                        </div>
+                    </div>
+        
+                    </fieldset>
+                    </form>
+                                       
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal" lang-switch>Close</button>
+                <button type="button" class="btn btn-primary add" id="buttonReq" onclick="submit();" lang-switch>Submit Request</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Respond Event -->
+    <div class="modal fade" id="testmodal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document" id="respondForm">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2" lang-switch>Organize Your Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="form-organize2">
+                    <fieldset>
+    
+                    <div class="form-group" id="sender-div">
+                        <label class="col-lg control-label" for="sender" id="labela" lang-switch>Sender:</label>
+                        <div class="col-lg">
+                            <p id="#sender" class="organize"></p>
+                        </div>
+                    </div>
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                        <!-- <label class="col-lg control-label" for="eventtype" lang-switch><span class="star">*</span>Type of Event:</label> -->
+
+                        <label class="col-lg control-label" for="eventtype2" lang-switch>*Type of Event:</label>
+                        <div class="col-lg">
+                        <select id="eventtype2" name="eventtype2" class="form-control organize" required="">
+                            <option value="0" selected disabled lang-switch>Select Type of Event</option>
+                            <option value="Birthday" lang-switch>Birthday</option>
+                            <option value="Wedding" lang-switch>Wedding</option>
+                            <option value="New Year" lang-switch>New Year</option>
+                            <option value="Conference" lang-switch>Conference</option>
+                            <option value="Other" lang-switch>Other (specify in the additional requests field)</option>
+                        </select>
+                        <p class="error center-align greska" id="typeErr2"></p>
+                        </div>
+                    </div>    
+                    
+                    <div class="form-group">   
+                        <!-- <label class="col-md-10 control-label" for="eventstart"><span class="star">*</span>Event start:</label> -->
+                        <label class="col-md-10 control-label" for="eventstart2" lang-switch>*Event Start:</label>
+                        <div class="col-md-6">
+                            <input type="date" id="startdate2" name="eventstart2" class="form-control input-md organize" required="" max="2021-12-31" onchange="enableStartTime2();">
+                            <input type="time" id="starttime2" name="eventstart2" class="form-control input-md organize" required="" disabled onchange="setEndDateLimit2();"> 
+                        </div> 
+                    </div>      
+                    
+                    <div class="form-group">   
+                        <!-- <label class="col-md-10 control-label" for="eventend"><span class="star">*</span>Event end:</label> -->
+                        <label class="col-md-10 control-label" for="eventend2" lang-switch>*Event End:</label>
+                        <div class="col-md-6">
+                            <input type="date" id="enddate2" name="eventend2" class="form-control input-md organize" required="" disabled onchange="setEndTimeLimit2();">
+                            <input type="time" id="endtime2" name="eventend2" class="form-control input-md organize" required="" disabled> 
+                            <p class="error center-align greska" id="dateErr2"></p>
+                        </div> 
+                       
+                    </div>
+    
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <!-- <label class="col-md-10 control-label" for="guestnum"><span class="star">*</span>Number of Guests (min 10):</label>   -->
+                      <label class="col-md-10 control-label" for="guestnum2" lang-switch>*Number of Guests (min 10):</label>
+                      <div class="col-md-4">
+                        <input id="guestnum2" name="guestnum2" type="number" placeholder="" class="form-control input-md organize" required="" min="10" onkeypress="return isNumberKey(event)"> 
+                    </div>
+                    
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                        <label class="col-lg control-label" for="space2" lang-switch>Choose Space:</label>
+                        <div class="col-lg">
+                        <select id="space2" name="space2" class="form-control organize">
+    
+                        </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="band2" lang-switch>Choose Music:</label>
+                      <div class="col-lg">
+                        <select id="band2" name="band2" class="form-control organize">
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="catering2" lang-switch>Choose Catering:</label>
+                      <div class="col-lg">
+                        <select id="catering2" name="catering" class="form-control organize">
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Select Multiple -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="photograph2" lang-switch>Choose Photographer:</label>
+                      <div class="col-lg">
+                        <select id="photograph2" name="photograph2" class="form-control organize" >
+    
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Multiple Radios -->
+                    <div class="form-group">
+                      <label class="col-lg control-label" for="priority2" lang-switch>Priority:</label>
+                      <div class="col-md-5">
+                      <div class="radio">
+                        <input type="radio" name="priority2" id="priority-02" value="Normal" checked="checked">
+                        <label for="priority-02" lang-switch>Normal</label>
+                        </div>
+                      <div class="radio">
+                        <input type="radio" name="priority2" id="priority-12" value="High">
+                        <label for="priority-12" lang-switch>High</label>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-8 control-label" for="addreq2" lang-switch>Additional Requests:</label>
+                        <div class="col-lg">                     
+                            <textarea class="form-control" id="addreq2" name="addreq2"></textarea>
+                        </div>
+                    </div>
+        
+                    </fieldset>
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal" lang-switch>Close</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success" style="margin-right: 0px;" id="buttonReq2" onclick="fork();" lang-switch>Submit</button>
+                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split submit-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu" style="padding: 5px;">
+                        <a class="dropdown-item cancel" href="javascript:;" onclick="confirmator(1);" lang-switch>Cancel Request</a>
+                        <div class="dropdown-divider" style="margin: 5px;"></div>
+                        <a class="dropdown-item confirm" href="javascript:;" onclick="confirmator(0);" lang-switch>Confirm Request</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+        
+    <!--Modal My Profile-->
+    <div class="modal fade" id="profilemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel4" lang-switch>My Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="profile-edit">
+                    <fieldset>
+
+                    <!-- Text input-->
+                    <div class="form-group" id="first-name-div">
+                      <label class="col-md-10 control-label" for="first-name" lang-switch>First Name:</label>  
+                      <div class="col-lg">
+                        <input id="first-name" name="first-name" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                      </div>
+                    </div>
+
+                    <div class="form-group" id="last-name-div">
+                        <label class="col-md-10 control-label" for="last-name" lang-switch>Last Name:</label>  
+                        <div class="col-lg">
+                          <input id="last-name" name="last-name" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-10 control-label" for="profile-email" lang-switch>Email:</label>  
+                        <div class="col-lg">
+                          <input id="profile-email" name="profile-email" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-10 control-label" for="profile-username" lang-switch>Username:</label>  
+                        <div class="col-lg">
+                          <input id="profile-username" name="profile-username" type="text" placeholder="" class="form-control input-md organize" required="required"> 
+                        </div>
+                        <p class="error red-text center-align greska" id="username-edit-error"></p>
+                    </div>
+        
+                    </fieldset>
+                </form>  
+            </div>
+            <div class="modal-footer">
+                <button type="button"  id="close" class="btn btn-secondary" data-dismiss="modal" lang-switch>Close</button>
+                <button type="button" class="btn btn-primary add" onclick="editUserInfo();" lang-switch>Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmmodal" tabindex="-1" role="dialog" aria-labelledby="conflab" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="conflab" lang-switch>Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p lang-switch>Are you sure you want to confirm this request?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  id="close" class="btn btn-secondary" onclick="back(0);" lang-switch>Back</button>
+                <button type="button" class="btn btn-primary add" onclick="forkConfirm();" lang-switch>Yes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancelation Modal -->
+    <div class="modal fade" id="cancelmodal" tabindex="-1" role="dialog" aria-labelledby="canclab" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="canclab" lang-switch>Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p lang-switch>Are you sure you want to cancel this request?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="close" class="btn btn-secondary" onclick="back(1);" lang-switch>Back</button>
+                <button type="button" class="btn btn-primary add" onclick="forkCancel();" lang-switch>Yes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal Section End-->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- <script defer src="js/home.js"></script> -->
+    <!-- <script defer src="js/login_signup.js"></script>
+    <script defer src="js/onstatechange.js"></script> -->
+    <script defer src="js/request.js"></script>
+    <script defer src="js/requests.js"></script>
+    <script defer src="js/filter.js"></script>
+    <script defer src="js/answer.js"></script>
+    <script defer src="js/inbox.js"></script>
+    <script defer src="js/header.js"></script>
+    <script defer src="js/language.js"></script>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-functions.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-messaging.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+    <!--initialize the SDK after all desired features are loaded -->
+
+    <script src="js/firebaseconfig.js"></script>
+
+</body>
+</html>
